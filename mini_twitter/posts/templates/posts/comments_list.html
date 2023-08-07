@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    {% for post, comments in comments_post %}
+        <div>
+            <p>{{post.user}}</p>
+            <p>{{post.title}}</p>
+        </div>
+        {% for comment in comments %}
+        <div>
+            <p>{{comment.content}}</p>
+            <p>{{comment.created_at}}</p>
+        </div>
+        {% endfor %}
+    <hr>
+    {% endfor %}
+</body>
+</html>
