@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <h1>{{title}}</h1>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for user in users %}
+          <div class="col">
+          <div class="card shadow-sm">
+              {% if user.avatar %}
+              <img src='{{user.avatar.url}}'>
+              {% else %}
+               <img src="{%static 'img/default_user_avatar.png' %}">
+              {% endif %}
+           <div class="card-body">
+              <p class="card-text">
+                <p>{{user.username}} </p>
+                <p>{{user.email}} </p>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-body-secondary">{{user.date_joined}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
