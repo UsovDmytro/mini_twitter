@@ -23,3 +23,5 @@ __pycache__/
 # Dependency directories
 venv/
 env/
+
+.media
