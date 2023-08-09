@@ -53,3 +53,7 @@ def get_full_posts(posts):
     for post in posts:
         full_posts.append((post, Comment.objects.filter(post__id=post.id).count()))
     return full_posts
+
+
+def add_post(request):
+    pass
