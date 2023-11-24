@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from custom_user.models import CustomUser
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -9,6 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder': 'RE-password'}))
 
     class Meta(UserCreationForm.Meta):
+        model = CustomUser
         fields = ['username', 'email', 'password1', 'password2']
 
 
